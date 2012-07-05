@@ -1,130 +1,78 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<parent>
-		<artifactId>jWebSocket-Parent</artifactId>
-		<groupId>org.jwebsocket</groupId>
-		<version>1.0</version>
-	</parent>
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.jwebsocket</groupId>
-	<artifactId>jWebSocketCommon</artifactId>
-	<name>jWebSocketCommon</name>
-	<description>jWebSocket Common Module</description>
-	<packaging>jar</packaging>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-	</properties>
-<!--
-	<scm>
-		<connection>scm:svn:https://jwebsocket.googlecode.com/svn/trunk/jWebSocketCommon</connection>
-		<developerConnection>scm:svn:https://jwebsocket.googlecode.com/svn/trunk/jWebSocketCommon</developerConnection>
-	</scm>
--->
-	<build>
-		<!-- use shared directory here, to share code across various platforms -->
-		<sourceDirectory>../shared/J2SE/jWebSocketCommon</sourceDirectory>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.3.1</version>
-				<configuration>
-					<outputDirectory>../../../rte/jWebSocket-${project.version}/libs</outputDirectory>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.7</version>
-				<configuration>
-					<reportOutputDirectory>${project.build.directory}/../../javadocs/${project.name}</reportOutputDirectory> -->
-					<stylesheetfile>${project.build.directory}/../../javadocs/stylesheet.css</stylesheetfile>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-			
-			<!-- start create assemblies -->
-			<!-- description: http://binkley.blogspot.com/2006/12/making-one-jar-with-maven.html -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.3</version>
-				<executions>
-					<execution>
-						<id>packaged</id>
-						<configuration>
-							<classifier>packaged</classifier>
-							<finalName>jWebSocketCommon</finalName>
-							<outputDirectory>../../../rte/jWebSocket-${project.version}/libs</outputDirectory>
-							<descriptors>
-								<descriptor>src/assembly/one-jar.xml</descriptor>
-							</descriptors>
-						</configuration>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			
-		</plugins>
-	</build>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <artifactId>jWebSocket-Parent</artifactId>
+    <groupId>org.jwebsocket</groupId>
+    <version>1.0</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.jwebsocket</groupId>
+  <artifactId>jWebSocketCommon</artifactId>
+  <name>jWebSocketCommon</name>
+  <description>jWebSocket Common Module</description>
+  <packaging>jar</packaging>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
 
-    <!--  define all the dependencies here -->
-	<dependencies>
-		<!-- javolution -->
-		<dependency>
-			<groupId>javolution</groupId>
-			<artifactId>javolution</artifactId>
-			<version>5.5.1</version>
-		</dependency>
-		<!-- jackson -->
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-core-asl</artifactId>
-			<version>1.9.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>1.9.3</version>
-		</dependency>
-		<!-- json.org -->
-		<dependency>
-			<groupId>org.netbeans.external</groupId>
-			<artifactId>json-2</artifactId>
-			<version>RELEASE65</version>
-			<type>jar</type>
-		</dependency>
-		<!-- Required for Base64 for binary transfer wrapped in text packets -->
-		<dependency>
-			<groupId>commons-codec</groupId>
-			<artifactId>commons-codec</artifactId>
-			<version>1.5</version>
-		</dependency>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      
+    </plugins>
+  </build>
 
-	</dependencies>
+  <!--  define all the dependencies here -->
+  <dependencies>
+    <!-- javolution -->
+    <dependency>
+      <groupId>javolution</groupId>
+      <artifactId>javolution</artifactId>
+      <version>5.5.1</version>
+    </dependency>
+    <!-- jackson -->
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-core-asl</artifactId>
+      <version>1.9.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>1.9.3</version>
+    </dependency>
+    <!-- json.org -->
+    <dependency>
+      <groupId>org.netbeans.external</groupId>
+      <artifactId>json-2</artifactId>
+      <version>RELEASE65</version>
+      <type>jar</type>
+    </dependency>
+    <!-- Required for Base64 for binary transfer wrapped in text packets -->
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.5</version>
+    </dependency>
+  </dependencies>
 
-	<!-- define repositories once required -->
-	<!--
-	<repositories>
-	</repositories>
-	-->
+  <repositories>
+    <!-- NetBeans repository -->
+    <repository>
+      <id>netbeans</id>
+      <name>NetBeans Repository</name>
+      <url>http://bits.netbeans.org/maven2</url>
+    </repository>
+  </repositories>
 </project>
