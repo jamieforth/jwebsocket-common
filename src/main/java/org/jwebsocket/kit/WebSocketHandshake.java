@@ -20,7 +20,9 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.net.HttpCookie;
+import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -559,7 +561,20 @@ public final class WebSocketHandshake {
         public byte[] generateC2SRequest(List<HttpCookie> aCookies) {
                 String lPath = mURI.getPath();
                 String lHost = mURI.getHost();
-                mOrigin = "http://" + lHost;
+                                
+                String protocol = "http";
+                
+                if ("wss".equals(mURI.getScheme())) {
+                    protocol = "https";
+                }
+                
+                try {
+                    URL lURL = new URL(protocol, mURI.getHost(), mURI.getPort(), "");
+                    mOrigin = lURL.toString();
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+
                 if ("".equals(lPath)) {
                         lPath = "/";
                 }
