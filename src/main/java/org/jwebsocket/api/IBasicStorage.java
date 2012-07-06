@@ -28,23 +28,23 @@ import java.util.Map;
  */
 public interface IBasicStorage<K, V> extends Map<K, V>, IInitializable {
 
-        /**
-         * 
-         * @return the IBasicStorage name
-         */
-        String getName();
+    /**
+     * 
+     * @return the IBasicStorage name
+     */
+    String getName();
 
-        /**
-         * 
-         * @param aName the IBasicStorage name to set
-         * @throws Exception
-         */
-        void setName(String aName) throws Exception;
+    /**
+     * 
+     * @param aName the IBasicStorage name to set
+     * @throws Exception
+     */
+    void setName(String aName) throws Exception;
 
-        /**
-         * 
-         * @param aKeys
-         * @return 
-         */
-        Map<K, V> getAll(Collection<K> aKeys);
+    /**
+     * 
+     * @param aKeys
+     * @return 
+     */
+    Map<K, V> getAll(Collection<K> aKeys);
 }

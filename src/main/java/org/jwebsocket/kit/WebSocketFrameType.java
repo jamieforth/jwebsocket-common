@@ -20,30 +20,30 @@ package org.jwebsocket.kit;
  */
 public enum WebSocketFrameType {
 
-        /**  */
-        INVALID(-1),
-        /**  */
-        FRAGMENT(0x00),
-        /**  */
-        TEXT(0x01),
-        /**  */
-        BINARY(0x02),
-        /**  */
-        CLOSE(0x09),
-        /**  */
-        PING(0x09),
-        /**  */
-        PONG(0x0A);
-        private int mFrameType;
+    /**  */
+    INVALID(-1),
+    /**  */
+    FRAGMENT(0x00),
+    /**  */
+    TEXT(0x01),
+    /**  */
+    BINARY(0x02),
+    /**  */
+    CLOSE(0x09),
+    /**  */
+    PING(0x09),
+    /**  */
+    PONG(0x0A);
+    private int mFrameType;
 
-        WebSocketFrameType(int aFrameType) {
-                mFrameType = aFrameType;
-        }
+    WebSocketFrameType(int aFrameType) {
+        mFrameType = aFrameType;
+    }
 
-        /**
-         * @return the status int value
-         */
-        public int getFrameType() {
-                return mFrameType;
-        }
+    /**
+     * @return the status int value
+     */
+    public int getFrameType() {
+        return mFrameType;
+    }
 }

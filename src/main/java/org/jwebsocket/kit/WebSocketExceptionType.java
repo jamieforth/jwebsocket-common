@@ -20,26 +20,26 @@ package org.jwebsocket.kit;
  */
 public enum WebSocketExceptionType {
 
-        /**  */
-        UNDEFINED(-1),
-        /**  */
-        UNKNOWN_HOST(1),
-        /**  */
-        UNABLE_TO_CONNECT(2),
-        /**  */
-        UNABLE_TO_CONNECT_SSL(3),
-        /**  */
-        PROTOCOL_NOT_SUPPORTED(4);
-        private int mExceptionType;
+    /**  */
+    UNDEFINED(-1),
+    /**  */
+    UNKNOWN_HOST(1),
+    /**  */
+    UNABLE_TO_CONNECT(2),
+    /**  */
+    UNABLE_TO_CONNECT_SSL(3),
+    /**  */
+    PROTOCOL_NOT_SUPPORTED(4);
+    private int mExceptionType;
 
-        WebSocketExceptionType(int aExceptionType) {
-                mExceptionType = aExceptionType;
-        }
+    WebSocketExceptionType(int aExceptionType) {
+        mExceptionType = aExceptionType;
+    }
 
-        /**
-         * @return the exception type's int value
-         */
-        public int getExceptionType() {
-                return mExceptionType;
-        }
+    /**
+     * @return the exception type's int value
+     */
+    public int getExceptionType() {
+        return mExceptionType;
+    }
 }

@@ -1,18 +1,18 @@
-//        ---------------------------------------------------------------------------
-//        jWebSocket - XML Token Processor
-//        Copyright (c) 2010 Alexander Schulze, Innotrade GmbH
-//        ---------------------------------------------------------------------------
-//        This program is free software; you can redistribute it and/or modify it
-//        under the terms of the GNU Lesser General Public License as published by the
-//        Free Software Foundation; either version 3 of the License, or (at your
-//        option) any later version.
-//        This program is distributed in the hope that it will be useful, but WITHOUT
-//        ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//        FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//        more details.
-//        You should have received a copy of the GNU Lesser General Public License along
-//        with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//        ---------------------------------------------------------------------------
+//    ---------------------------------------------------------------------------
+//    jWebSocket - XML Token Processor
+//    Copyright (c) 2010 Alexander Schulze, Innotrade GmbH
+//    ---------------------------------------------------------------------------
+//    This program is free software; you can redistribute it and/or modify it
+//    under the terms of the GNU Lesser General Public License as published by the
+//    Free Software Foundation; either version 3 of the License, or (at your
+//    option) any later version.
+//    This program is distributed in the hope that it will be useful, but WITHOUT
+//    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//    FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//    more details.
+//    You should have received a copy of the GNU Lesser General Public License along
+//    with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//    ---------------------------------------------------------------------------
 package org.jwebsocket.packetProcessors;
 
 import java.util.Collection;
@@ -35,27 +35,27 @@ public class XMLProcessor {
      * @return
      */
     public static Token packetToToken(WebSocketPacket aDataPacket) {
-        // todo: implement!
-        Token lArgs = TokenFactory.createToken();
-        return lArgs;
+    // todo: implement!
+    Token lArgs = TokenFactory.createToken();
+    return lArgs;
     }
 
     private static String stringToXML(String aString) {
-        // todo: implement!
-        String lRes = null;
-        return lRes;
+    // todo: implement!
+    String lRes = null;
+    return lRes;
     }
 
     private static String listToXML(Collection<Object> aCollection) {
-        // todo: implement!
-        String lRes = null;
-        return lRes;
+    // todo: implement!
+    String lRes = null;
+    return lRes;
     }
 
     private static String objectToXML(Object aObj) {
-        // todo: implement!
-        String lRes = null;
-        return lRes;
+    // todo: implement!
+    String lRes = null;
+    return lRes;
     }
 
     /**
@@ -64,7 +64,7 @@ public class XMLProcessor {
      * @return
      */
     public static WebSocketPacket tokenToPacket(Token aToken) {
-        // todo: implement!
-        return null;
+    // todo: implement!
+    return null;
     }
 }

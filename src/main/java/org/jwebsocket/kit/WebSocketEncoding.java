@@ -20,22 +20,22 @@ package org.jwebsocket.kit;
  */
 public enum WebSocketEncoding {
 
-        /**  */
-        INVALID(-1),
-        /**  */
-        TEXT(0x00),
-        /**  */
-        BINARY(0x01);
-        private int mEncoding;
+    /**  */
+    INVALID(-1),
+    /**  */
+    TEXT(0x00),
+    /**  */
+    BINARY(0x01);
+    private int mEncoding;
 
-        WebSocketEncoding(int aEncoding) {
-                mEncoding = aEncoding;
-        }
+    WebSocketEncoding(int aEncoding) {
+        mEncoding = aEncoding;
+    }
 
-        /**
-         * @return the status int value
-         */
-        public int getEncoding() {
-                return mEncoding;
-        }
+    /**
+     * @return the status int value
+     */
+    public int getEncoding() {
+        return mEncoding;
+    }
 }

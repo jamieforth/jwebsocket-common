@@ -21,13 +21,13 @@ package org.jwebsocket.api;
  * @author kyberneees
  */
 public interface IBasicCacheStorage<K, V> extends IBasicStorage<K, V> {
-        
-        /**
-         * put a value in the storage and indicate it expiration time 
-         * 
-         * @param key
-         * @param value
-         * @param expTime The value expiration time
-         */
-        public V put(K key, V value, int expTime);
+    
+    /**
+     * put a value in the storage and indicate it expiration time 
+     * 
+     * @param key
+     * @param value
+     * @param expTime The value expiration time
+     */
+    public V put(K key, V value, int expTime);
 }

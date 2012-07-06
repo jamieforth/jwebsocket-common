@@ -21,32 +21,32 @@ package org.jwebsocket.kit;
  */
 public enum WebSocketJSONType {
 
-        /** Invalid data type */
-        INVALID(-1),
-        /** string */
-        STRING(0),
-        /** number (64 bit float) */
-        NUMBER(2),
-        /** boolean (true/false)  */
-        BOOLEAN(3),
-        /** date including time */
-        DATE(4),
-        /** array */
-        ARRAY(5),
-        /** object */
-        OBJECT(6),
-        /** function */
-        FUNCTION(7);
-        private int mJSONType;
+    /** Invalid data type */
+    INVALID(-1),
+    /** string */
+    STRING(0),
+    /** number (64 bit float) */
+    NUMBER(2),
+    /** boolean (true/false)  */
+    BOOLEAN(3),
+    /** date including time */
+    DATE(4),
+    /** array */
+    ARRAY(5),
+    /** object */
+    OBJECT(6),
+    /** function */
+    FUNCTION(7);
+    private int mJSONType;
 
-        WebSocketJSONType(int aDataType) {
-                mJSONType = aDataType;
-        }
+    WebSocketJSONType(int aDataType) {
+        mJSONType = aDataType;
+    }
 
-        /**
-         * @return the status int value
-         */
-        public int getDataType() {
-                return mJSONType;
-        }
+    /**
+     * @return the status int value
+     */
+    public int getDataType() {
+        return mJSONType;
+    }
 }

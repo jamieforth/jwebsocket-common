@@ -21,44 +21,44 @@ package org.jwebsocket.kit;
  */
 public enum WebSocketDataType {
 
-        /** Invalid data type */
-        INVALID(-1),
-        /** UTF formatted text */
-        TEXT(0),
-        /** binary data (byte array) */
-        BINARY(1),
-        /** 32 bit integer */
-        INTEGER(2),
-        /** 8 bit byte */
-        BYTE(3),
-        /** 64 long integer */
-        LONG(4),
-        /** normal precision float  */
-        FLOAT(5),
-        /** double precision float  */
-        DOUBLE(6),
-        /** date without time  */
-        DATE(7),
-        /** time with outdate */
-        TIME(8),
-        /** date and date */
-        TIMESTAMP(9),
-        /** boolean (true/false)  */
-        BOOLEAN(10),
-        /** list of objects (only WebSocketDataTypes allowed) */
-        LIST(11),
-        /** map of objects (only WebSocketDataTypes allowed) */
-        MAP(12);
-        private int mDataType;
+    /** Invalid data type */
+    INVALID(-1),
+    /** UTF formatted text */
+    TEXT(0),
+    /** binary data (byte array) */
+    BINARY(1),
+    /** 32 bit integer */
+    INTEGER(2),
+    /** 8 bit byte */
+    BYTE(3),
+    /** 64 long integer */
+    LONG(4),
+    /** normal precision float  */
+    FLOAT(5),
+    /** double precision float  */
+    DOUBLE(6),
+    /** date without time  */
+    DATE(7),
+    /** time with outdate */
+    TIME(8),
+    /** date and date */
+    TIMESTAMP(9),
+    /** boolean (true/false)  */
+    BOOLEAN(10),
+    /** list of objects (only WebSocketDataTypes allowed) */
+    LIST(11),
+    /** map of objects (only WebSocketDataTypes allowed) */
+    MAP(12);
+    private int mDataType;
 
-        WebSocketDataType(int aDataType) {
-                mDataType = aDataType;
-        }
+    WebSocketDataType(int aDataType) {
+        mDataType = aDataType;
+    }
 
-        /**
-         * @return the status int value
-         */
-        public int getDataType() {
-                return mDataType;
-        }
+    /**
+     * @return the status int value
+     */
+    public int getDataType() {
+        return mDataType;
+    }
 }

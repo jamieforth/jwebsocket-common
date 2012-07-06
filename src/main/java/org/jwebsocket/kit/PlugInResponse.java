@@ -1,18 +1,18 @@
-//        ---------------------------------------------------------------------------
-//        jWebSocket - Result from a PlugIn in the PlugInChain
-//        Copyright (c) 2010 Alexander Schulze, Innotrade GmbH
-//        ---------------------------------------------------------------------------
-//        This program is free software; you can redistribute it and/or modify it
-//        under the terms of the GNU Lesser General Public License as published by the
-//        Free Software Foundation; either version 3 of the License, or (at your
-//        option) any later version.
-//        This program is distributed in the hope that it will be useful, but WITHOUT
-//        ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//        FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//        more details.
-//        You should have received a copy of the GNU Lesser General Public License along
-//        with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//        ---------------------------------------------------------------------------
+//    ---------------------------------------------------------------------------
+//    jWebSocket - Result from a PlugIn in the PlugInChain
+//    Copyright (c) 2010 Alexander Schulze, Innotrade GmbH
+//    ---------------------------------------------------------------------------
+//    This program is free software; you can redistribute it and/or modify it
+//    under the terms of the GNU Lesser General Public License as published by the
+//    Free Software Foundation; either version 3 of the License, or (at your
+//    option) any later version.
+//    This program is distributed in the hope that it will be useful, but WITHOUT
+//    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//    FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//    more details.
+//    You should have received a copy of the GNU Lesser General Public License along
+//    with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//    ---------------------------------------------------------------------------
 package org.jwebsocket.kit;
 
 /**
@@ -24,71 +24,71 @@ package org.jwebsocket.kit;
  */
 public class PlugInResponse {
 
-        private boolean mChainAborted = false;
-        private boolean mTokenProcessed = false;
-        private int mReturnCode = -1;
-        private String mMessage = null;
+    private boolean mChainAborted = false;
+    private boolean mTokenProcessed = false;
+    private int mReturnCode = -1;
+    private String mMessage = null;
 
-        /**
-         * Returns if the plug-in chain has to be aborted after a plug-in has
-         * finished its work.
-         * @return the chainAborted
-         */
-        public Boolean isChainAborted() {
-                return mChainAborted;
-        }
+    /**
+     * Returns if the plug-in chain has to be aborted after a plug-in has
+     * finished its work.
+     * @return the chainAborted
+     */
+    public Boolean isChainAborted() {
+        return mChainAborted;
+    }
 
-        /**
-         * Signals that the plug-in chain has to be be aborted. The token has not
-         * been processed.
-         */
-        public void abortChain() {
-                this.mChainAborted = true;
-                this.mTokenProcessed = false;
-        }
+    /**
+     * Signals that the plug-in chain has to be be aborted. The token has not
+     * been processed.
+     */
+    public void abortChain() {
+        this.mChainAborted = true;
+        this.mTokenProcessed = false;
+    }
 
-        /**
-         * Signals that the plug-in chain has to be be aborted. The token has been
-         * processed.
-         */
-        public void breakChain() {
-                this.mChainAborted = true;
-                this.mTokenProcessed = true;
-        }
+    /**
+     * Signals that the plug-in chain has to be be aborted. The token has been
+     * processed.
+     */
+    public void breakChain() {
+        this.mChainAborted = true;
+        this.mTokenProcessed = true;
+    }
 
-        /**
-         * Signals that the plug-in chain has to be be continued.
-         */
-        public void continueChain() {
-                this.mChainAborted = false;
-        }
+    /**
+     * Signals that the plug-in chain has to be be continued.
+     */
+    public void continueChain() {
+        this.mChainAborted = false;
+    }
 
-        /**
-         * @return the mReturnCode
-         */
-        public int getReturnCode() {
-                return mReturnCode;
-        }
+    /**
+     * @return the mReturnCode
+     */
+    public int getReturnCode() {
+        return mReturnCode;
+    }
 
-        /**
-         * @param mReturnCode the mReturnCode to set
-         */
-        public void setReturnCode(int aReturnCode) {
-                this.mReturnCode = aReturnCode;
-        }
+    /**
+     * @param mReturnCode the mReturnCode to set
+     */
+    public void setReturnCode(int aReturnCode) {
+        this.mReturnCode = aReturnCode;
+    }
 
-        /**
-         * @return the mMessage
-         */
-        public String getMessage() {
-                return mMessage;
-        }
+    /**
+     * @return the mMessage
+     */
+    public String getMessage() {
+        return mMessage;
+    }
 
-        /**
-         * @param mMessage the mMessage to set
-         */
-        public void setMessage(String aMessage) {
-                this.mMessage = aMessage;
-        }
+    /**
+     * @param mMessage the mMessage to set
+     */
+    public void setMessage(String aMessage) {
+        this.mMessage = aMessage;
+    }
 
 }

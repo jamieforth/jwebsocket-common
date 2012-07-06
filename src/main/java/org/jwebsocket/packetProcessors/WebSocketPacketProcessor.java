@@ -24,18 +24,18 @@ import org.jwebsocket.token.Token;
  */
 public interface WebSocketPacketProcessor {
 
-        /**
-         * 
-         * @param aDataPacket
-         * @return
-         */
-        Token packetToToken(WebSocketPacket aDataPacket);
+    /**
+     * 
+     * @param aDataPacket
+     * @return
+     */
+    Token packetToToken(WebSocketPacket aDataPacket);
 
-        /**
-         *
-         * @param aToken
-         * @return
-         */
-        WebSocketPacket tokenToPacket(Token aToken);
+    /**
+     *
+     * @param aToken
+     * @return
+     */
+    WebSocketPacket tokenToPacket(Token aToken);
 
 }

@@ -21,50 +21,50 @@ package org.jwebsocket.kit;
  */
 public enum WebSocketJavaType {
 
-        /** Invalid data type */
-        INVALID(-1),
-        /**  */
-        BTYE(0),
-        /**  */
-        SHORT(1),
-        /**  */
-        INTEGER(2),
-        /**  */
-        FLOAT(3),
-        /**  */
-        DOUBLE(4),
-        /**  */
-        BIGDECIMAL(5),
-        /**  */
-        BOOLEAN(6),
-        /**  */
-        STRING(7),
-        /**  */
-        DATE(8),
-        /**  */
-        TIME(9),
-        /**  */
-        TIMESTAMP(10),
-        /**  */
-        BLOB(11),
-        /**  */
-        CLOB(12),
-        /**  */
-        ARRAY(13),
-        /**  */
-        LIST(14),
-        /**  */
-        MAP(15);
-        private int mJavaType;
+    /** Invalid data type */
+    INVALID(-1),
+    /**  */
+    BTYE(0),
+    /**  */
+    SHORT(1),
+    /**  */
+    INTEGER(2),
+    /**  */
+    FLOAT(3),
+    /**  */
+    DOUBLE(4),
+    /**  */
+    BIGDECIMAL(5),
+    /**  */
+    BOOLEAN(6),
+    /**  */
+    STRING(7),
+    /**  */
+    DATE(8),
+    /**  */
+    TIME(9),
+    /**  */
+    TIMESTAMP(10),
+    /**  */
+    BLOB(11),
+    /**  */
+    CLOB(12),
+    /**  */
+    ARRAY(13),
+    /**  */
+    LIST(14),
+    /**  */
+    MAP(15);
+    private int mJavaType;
 
-        WebSocketJavaType(int aDataType) {
-                mJavaType = aDataType;
-        }
+    WebSocketJavaType(int aDataType) {
+        mJavaType = aDataType;
+    }
 
-        /**
-         * @return the status int value
-         */
-        public int getDataType() {
-                return mJavaType;
-        }
+    /**
+     * @return the status int value
+     */
+    public int getDataType() {
+        return mJavaType;
+    }
 }

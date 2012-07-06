@@ -21,15 +21,15 @@ package org.jwebsocket.api;
  */
 public interface IInitializable {
 
-        /**
-         * 
-         * @throws Exception
-         */
-        public void initialize() throws Exception;
+    /**
+     * 
+     * @throws Exception
+     */
+    public void initialize() throws Exception;
 
-        /**
-         * 
-         * @throws Exception
-         */
-        public void shutdown() throws Exception;
+    /**
+     * 
+     * @throws Exception
+     */
+    public void shutdown() throws Exception;
 }

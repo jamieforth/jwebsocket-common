@@ -1,18 +1,18 @@
-//        ---------------------------------------------------------------------------
-//        jWebSocket - Broadcasting options
-//        Copyright (c) 2010 Alexander Schulze, Innotrade GmbH
-//        ---------------------------------------------------------------------------
-//        This program is free software; you can redistribute it and/or modify it
-//        under the terms of the GNU Lesser General Public License as published by the
-//        Free Software Foundation; either version 3 of the License, or (at your
-//        option) any later version.
-//        This program is distributed in the hope that it will be useful, but WITHOUT
-//        ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//        FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//        more details.
-//        You should have received a copy of the GNU Lesser General Public License along
-//        with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//        ---------------------------------------------------------------------------
+//    ---------------------------------------------------------------------------
+//    jWebSocket - Broadcasting options
+//    Copyright (c) 2010 Alexander Schulze, Innotrade GmbH
+//    ---------------------------------------------------------------------------
+//    This program is free software; you can redistribute it and/or modify it
+//    under the terms of the GNU Lesser General Public License as published by the
+//    Free Software Foundation; either version 3 of the License, or (at your
+//    option) any later version.
+//    This program is distributed in the hope that it will be useful, but WITHOUT
+//    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//    FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//    more details.
+//    You should have received a copy of the GNU Lesser General Public License along
+//    with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//    ---------------------------------------------------------------------------
 package org.jwebsocket.kit;
 
 /**
@@ -29,10 +29,10 @@ package org.jwebsocket.kit;
  */
 public class BroadcastOptions {
 
-        public static final boolean SENDER_INCLUDED = true;
-        public static final boolean SENDER_EXCLUDED = false;
-        public static final boolean RESPONSE_REQUESTED = true;
-        public static final boolean RESPONSE_IGNORED = false;
+    public static final boolean SENDER_INCLUDED = true;
+    public static final boolean SENDER_EXCLUDED = false;
+    public static final boolean RESPONSE_REQUESTED = true;
+    public static final boolean RESPONSE_IGNORED = false;
 
     private boolean mSenderIncluded = false;
     private boolean mRresponseRequested = false;
@@ -45,10 +45,10 @@ public class BroadcastOptions {
      * 
      * @param aSenderIncluded {@code true} if to include sender, {@code false} otherwise
      * @param aResponseRequested {@code true} if to response is requested, {@code false}
-     *            otherwise
+     *        otherwise
      */
     public BroadcastOptions(boolean aSenderIncluded, boolean aResponseRequested) {
-        this(aSenderIncluded, aResponseRequested, false);
+    this(aSenderIncluded, aResponseRequested, false);
     }
 
     /**
@@ -61,9 +61,9 @@ public class BroadcastOptions {
      * @param aAsync {@code true} if to broadcast asynchronously
      */
     public BroadcastOptions(boolean aSenderIncluded, boolean aResponseRequested, boolean aAsync) {
-        mSenderIncluded = aSenderIncluded;
-        mRresponseRequested = aResponseRequested;
-        mAsync = aAsync;
+    mSenderIncluded = aSenderIncluded;
+    mRresponseRequested = aResponseRequested;
+    mAsync = aAsync;
     }
 
     /**
@@ -72,7 +72,7 @@ public class BroadcastOptions {
      * @return senderIncluded Is the sender included in the pending broadcast?
      */
     public boolean isSenderIncluded() {
-        return mSenderIncluded;
+    return mSenderIncluded;
     }
 
     /**
@@ -81,7 +81,7 @@ public class BroadcastOptions {
      * @param aSenderIncluded Sender supposed to be included in the pending broadcast?
      */
     public void setSenderIncluded(boolean aSenderIncluded) {
-        mSenderIncluded = aSenderIncluded;
+    mSenderIncluded = aSenderIncluded;
     }
 
     /**
@@ -90,7 +90,7 @@ public class BroadcastOptions {
      * @return responseRequested Server supposed to send a response?
      */
     public boolean isResponseRequested() {
-        return mRresponseRequested;
+    return mRresponseRequested;
     }
 
     /**
@@ -99,21 +99,21 @@ public class BroadcastOptions {
      * @param responseRequested Server supposed to send a response?
      */
     public void setResponseRequested(boolean responseRequested) {
-        mRresponseRequested = responseRequested;
+    mRresponseRequested = responseRequested;
     }
 
     /**
      * @return the async
      */
     public boolean isAsync() {
-        return mAsync;
+    return mAsync;
     }
 
     /**
      * @param aAsync the async to set
      */
     public void setAsync(boolean aAsync) {
-        mAsync = aAsync;
+    mAsync = aAsync;
     }
 
 }
