@@ -38,6 +38,7 @@ import org.jwebsocket.util.Tools;
  * Utility class for all the handshaking related request/response.
  *
  * @author aschulze
+ * @author Jamie Forth
  * @version $Id:$
  */
 public final class WebSocketHandshake {
