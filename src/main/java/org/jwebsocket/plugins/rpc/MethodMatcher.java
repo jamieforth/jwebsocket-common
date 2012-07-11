@@ -20,7 +20,6 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
-
 import org.jwebsocket.plugins.rpc.util.ListConverter;
 import org.jwebsocket.plugins.rpc.util.MethodMatcherConversionException;
 import org.jwebsocket.token.BaseTokenizable;
@@ -96,7 +95,7 @@ public class MethodMatcher {
                                     ((BaseTokenizable) lCustObj).readFromToken(lToken);
                                 }
                                 mMethodParameters[j] = lCustObj;
-                            } catch (Exception lEx) {
+                            } catch (RuntimeException lEx) {
                                 throw new MethodMatcherConversionException(
                                         lEx.getClass().getSimpleName() + ": "
                                         + lEx.getMessage());
@@ -167,6 +166,7 @@ public class MethodMatcher {
      * @param aParameter
      */
     protected void setMethodParameters(int aIndice, Object aParameter) {
+        // FindBug: mMethodParameters might be null. Not set in constructor.
         mMethodParameters[aIndice] = aParameter;
     }
 

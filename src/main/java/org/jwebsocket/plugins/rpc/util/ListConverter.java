@@ -3,7 +3,6 @@ package org.jwebsocket.plugins.rpc.util;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
-
 import javolution.util.FastList;
 
 @SuppressWarnings("rawtypes")

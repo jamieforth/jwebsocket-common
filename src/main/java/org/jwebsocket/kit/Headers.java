@@ -134,6 +134,7 @@ public class Headers {
      * @return the trailing bytes (16) of the header.
      */
     public byte[] getTrailingBytes() {
+        // FindBug: This variable is only ever null
         return mTrailingBytes;
     }
 

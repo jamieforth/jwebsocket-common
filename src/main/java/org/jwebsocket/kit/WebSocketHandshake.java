@@ -46,7 +46,7 @@ public final class WebSocketHandshake {
     /**
      *
      */
-    public static int MAX_HEADER_SIZE = 16834;
+    public final static int MAX_HEADER_SIZE = 16834;
     private String mHybiKey = null;
     private String mHybiKeyAccept = null;
     private String mHixieKey1 = null;
@@ -164,7 +164,7 @@ public final class WebSocketHandshake {
         String lRequest = "";
         try {
             lRequest = new String(aReq, "US-ASCII");
-        } catch (Exception lEx) {
+        } catch (UnsupportedEncodingException lEx) {
             // TODO: add exception handling
         }
 
@@ -594,14 +594,14 @@ public final class WebSocketHandshake {
         // Set client cookies
         if (null != aCookies && !aCookies.isEmpty()) {
             //Generating Cookie header
-            String lCookies = "";
+            StringBuilder lCookiesSB = new StringBuilder("");
             for (HttpCookie lCookie : aCookies){
-                if (!lCookies.equals("")){
-                    lCookies += "; ";
+                if (!lCookiesSB.toString().equals("")){
+                    lCookiesSB.append("; ");
                 }
-                lCookies += lCookie.getName() + "=" + lCookie.getValue();
+                lCookiesSB.append(lCookie.getName()).append("=").append(lCookie.getValue());
             }
-            lHandshake += "Cookie: " + lCookies + "\r\n";
+            lHandshake += "Cookie: " + lCookiesSB.toString() + "\r\n";
         }
 
         if (WebSocketProtocolAbstraction.isHixieVersion(mVersion)) {

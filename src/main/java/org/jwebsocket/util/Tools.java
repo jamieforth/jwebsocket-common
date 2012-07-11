@@ -20,6 +20,7 @@ import java.net.HttpCookie;
 import java.net.URI;
 import java.security.MessageDigest;
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Map.Entry;
@@ -188,7 +189,7 @@ public class Tools {
         int lRes;
         try {
             lRes = Integer.parseInt(aString);
-        } catch (Exception lEx) {
+        } catch (RuntimeException lEx) {
             lRes = aDefault;
         }
         return lRes;
@@ -224,7 +225,7 @@ public class Tools {
             // TimeZone lTimeZone = TimeZone.getTimeZone("GMT");
             // lSDF.setTimeZone(lTimeZone);
             return lSDF.parse(aISO8601Date);
-        } catch (Exception lEx) {
+        } catch (ParseException lEx) {
             return null;
         }
     }

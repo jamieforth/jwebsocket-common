@@ -1,9 +1,7 @@
 package org.jwebsocket.plugins.rpc;
 
 import java.util.List;
-
 import javolution.util.FastList;
-
 import org.jwebsocket.token.Token;
 import org.jwebsocket.token.TokenFactory;
 

@@ -15,7 +15,6 @@
 //    ---------------------------------------------------------------------------
 package org.jwebsocket.token;
 
-import org.jwebsocket.api.ITokenizable;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -25,6 +24,7 @@ import javolution.util.FastMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.jwebsocket.api.ITokenizable;
 
 /**
  * A token is ...
@@ -472,7 +472,7 @@ public class JSONToken extends BaseToken implements Token {
             try {
                 Object lVal = mData.get(lKey);
                 lMap.put(lKey, lVal);
-            } catch (Exception lEx) {
+            } catch (JSONException lEx) {
                 // TODO: process exception
             }
         }
@@ -520,7 +520,7 @@ public class JSONToken extends BaseToken implements Token {
         Object lObj = null;
         try {
             lObj = mData.get(aKey);
-        } catch (Exception lEx) {
+        } catch (JSONException lEx) {
             // 
         }
         return lObj;

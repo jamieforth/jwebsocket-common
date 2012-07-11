@@ -18,7 +18,6 @@ package org.jwebsocket.packetProcessors;
 import java.io.UnsupportedEncodingException;
 import java.util.Collection;
 import java.util.Iterator;
-
 import org.jwebsocket.api.WebSocketPacket;
 import org.jwebsocket.kit.RawPacket;
 import org.jwebsocket.token.Token;
@@ -75,13 +74,14 @@ public class CSVProcessor {
     }
 
     private static String collectionToCSV(Collection<Object> aCollection) {
-    String lRes = "";
+    StringBuilder lResSB = new StringBuilder("");
+    String lRes="";
     for (Object lItem : aCollection) {
         String llRes = objectToCSV(lItem);
-        lRes += llRes + "|";
+        lResSB.append(llRes + "|");
     }
-    if (lRes.length() > 1) {
-        lRes = lRes.substring(0, lRes.length() - 1);
+    if (lResSB.length() > 1) {
+        lRes = lResSB.substring(0, lResSB.length() - 1);
     }
     lRes = "[" + lRes + "]";
     return lRes;

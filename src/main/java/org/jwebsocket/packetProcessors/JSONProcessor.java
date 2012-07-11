@@ -15,6 +15,7 @@
 // ---------------------------------------------------------------------------
 package org.jwebsocket.packetProcessors;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -59,7 +60,7 @@ public class JSONProcessor {
             ObjectMapper lMapper = new ObjectMapper();
             Map<String, Object> lTree = lMapper.readValue(aJsonString, Map.class);
             lToken.setMap(lTree);
-        } catch (Exception lEx) {
+        } catch (IOException lEx) {
             // // TODO: process exception
             // log.error(ex.getClass().getSimpleName() + ": " +
             // ex.getMessage());
@@ -77,7 +78,7 @@ public class JSONProcessor {
         Token lToken = null;
         try {
             lToken = jsonStringToToken(aDataPacket.getString("UTF-8"));
-        } catch (Exception lEx) {
+        } catch (IOException lEx) {
             // // TODO: process exception
             // log.error(ex.getClass().getSimpleName() + ": " +
             // ex.getMessage());
@@ -94,7 +95,7 @@ public class JSONProcessor {
             ObjectMapper lMapper = new ObjectMapper();
             String lData = lMapper.writeValueAsString(aToken.getMap());
             lPacket = new RawPacket(lData, "UTF-8");
-        } catch (Exception lEx) {
+        } catch (IOException lEx) {
             // System.out.println(lEx.getMessage());
             // TODO: process exception
             // log.error(ex.getClass().getSimpleName() + ": " +

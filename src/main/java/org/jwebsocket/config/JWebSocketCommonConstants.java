@@ -67,7 +67,7 @@ public class JWebSocketCommonConstants {
     /**
      * Default protocol
      */
-    public static String WS_SUBPROT_DEFAULT = WS_SUBPROT_JSON;
+    public final static String WS_SUBPROT_DEFAULT = WS_SUBPROT_JSON;
     /**
      * JSON sub protocol format
      */
@@ -91,7 +91,7 @@ public class JWebSocketCommonConstants {
     /**
      * Default sub protocol format
      */
-    public static String WS_FORMAT_DEFAULT = WS_FORMAT_JSON;
+    public final static String WS_FORMAT_DEFAULT = WS_FORMAT_JSON;
     /**
      * WebSocket protocol hybi draft 10 (http://tools.ietf.org/html/draft-hixie-thewebsocketprotocol-76)
      */
@@ -171,23 +171,23 @@ public class JWebSocketCommonConstants {
     /**
      * Separator between the path and the argument list in the URL.
      */
-    public static String PATHARG_SEPARATOR = ";";
+    public final static String PATHARG_SEPARATOR = ";";
     /**
      * Separator between the various URL arguments.
      */
-    public static String ARGARG_SEPARATOR = ",";
+    public final static String ARGARG_SEPARATOR = ",";
     /**
      * Separator between the key and the value of each URL argument.
      */
-    public static String KEYVAL_SEPARATOR = "=";
+    public final static String KEYVAL_SEPARATOR = "=";
     /**
      * Minimum allow outgoing TCP Socket port.
      */
-    public static int MIN_IN_PORT = 1024;
+    public final static int MIN_IN_PORT = 1024;
     /**
      * Maximum allow outgoing TCP Socket port.
      */
-    public static int MAX_IN_PORT = 65535;
+    public final static int MAX_IN_PORT = 65535;
     /**
      * the default maximum frame size if not configured
      */
@@ -195,11 +195,11 @@ public class JWebSocketCommonConstants {
     /**
      * Default socket port for jWebSocket clients.
      */
-    public static int DEFAULT_PORT = 8787;
+    public final static int DEFAULT_PORT = 8787;
     /**
      * Default socket port for jWebSocket clients.
      */
-    public static int DEFAULT_SSLPORT = 9797;
+    public final static int DEFAULT_SSLPORT = 9797;
     /**
      * Default context on app servers and servlet containers
      */
@@ -211,7 +211,7 @@ public class JWebSocketCommonConstants {
     /**
      * Default Session Timeout for client connections (120000ms = 2min)
      */
-    public static int DEFAULT_TIMEOUT = 120000;
+    public final static int DEFAULT_TIMEOUT = 120000;
     /**
      * private scope, only authenticated user can read and write his personal items
      */

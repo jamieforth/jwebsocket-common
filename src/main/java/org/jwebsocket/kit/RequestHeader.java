@@ -156,7 +156,7 @@ public final class RequestHeader {
         if (lArgs != null) {
             try {
                 lTimeout = Integer.parseInt((String) (lArgs.get(TIMEOUT)));
-            } catch (Exception lEx) {
+            } catch (RuntimeException lEx) {
             }
         }
         return (lTimeout != null ? lTimeout : aDefault);

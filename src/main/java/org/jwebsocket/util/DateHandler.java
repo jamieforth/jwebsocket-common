@@ -69,7 +69,7 @@ public class DateHandler {
      */
     public static synchronized Integer rangeOfDaysBetweenDates(Date aInitialDate, Date aEndDate) {
     long lRange = aEndDate.getTime() - aInitialDate.getTime();
-    double lDays = Math.floor(lRange / (1000 * 60 * 60 * 24));
+    double lDays = Math.floor(lRange / (1000L * 60 * 60 * 24));
     return ((int) lDays);
     }
 }
