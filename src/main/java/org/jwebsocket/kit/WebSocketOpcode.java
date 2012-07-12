@@ -26,7 +26,7 @@ public class WebSocketOpcode {
     public int OPCODE_FRAGMENT = 0x00;
     public int OPCODE_TEXT = 0x01;
     public int OPCODE_BINARY = 0x02;
-    public int OPCODE_CLOSE = 0x09;
+    public int OPCODE_CLOSE = 0x08;
     public int OPCODE_PING = 0x09;
     public int OPCODE_PONG = 0x0A;
 
