@@ -196,7 +196,10 @@ public final class WebSocketHandshake {
             return null;
         }
         lHost = lHost.substring(0, lPos);
+
         // get origin....
+        // FIXME: Works for 'Sec-WebSocket-Origin:' and 'Origin:' (changed in
+        // hybi-11). Should be tightened up to reflect the requested version.
         lPos = lRequest.indexOf("Origin:");
         if (lPos < 0) {
             return null;
@@ -240,6 +243,7 @@ public final class WebSocketHandshake {
 
         // Sec-WebSocket-Draft: This field was introduced with hybi-03 web socket protocol draft.
         // See: http://tools.ietf.org/html/draft-ietf-hybi-thewebsocketprotocol-03
+        // It was removed again in hybi-04.
         //
         // Specification proposes the use of draft number (without any prefixes or suffixes) as a value
         // for this field. For example: "Sec-WebSocket-Draft: 3" indicates that the communication will proceed
@@ -457,13 +461,19 @@ public final class WebSocketHandshake {
 
         // now that we have parsed the header send handshake...
         // since 0.9.0.0609 considering Sec-WebSocket-Key processing
+        
+        // The server response does not include Origin, since hybi-04.
         Boolean lIsSecure = (Boolean) aRequest.get("isSecure");
         String lSecKeyAccept = (String) aRequest.get("secKeyAccept");
         byte[] lSecKeyResponse = (byte[]) aRequest.get("secKeyResponse");
         String lOrigin = (String) aRequest.get(RequestHeader.WS_ORIGIN);
         String lLocation = (String) aRequest.get(RequestHeader.WS_LOCATION);
         String lSubProt = (String) aRequest.get(RequestHeader.WS_PROTOCOL);
-        String lRes =
+
+        // FIXME: Origin is not sent by the server since hybi-04.
+        // FIXME: Location is not sent by the server since hybi-05.
+
+        String lRes = 
                 // since IETF draft 76 "WebSocket Protocol" not "Web Socket Protocol"
                 // change implemented since v0.9.5.0701
                 (lSecKeyAccept == null
