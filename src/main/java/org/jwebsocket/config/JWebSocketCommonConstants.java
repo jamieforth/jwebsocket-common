@@ -127,7 +127,7 @@ public class JWebSocketCommonConstants {
     /**
      * WebSocket latest supported hybi version
      */
-    public final static int WS_LATEST_SUPPORTED_HYBI_VERSION = 8;
+    public final static int WS_LATEST_SUPPORTED_HYBI_VERSION = 10;
     /**
      * WebSocket earliest supported hixie draft
      */
@@ -159,7 +159,7 @@ public class JWebSocketCommonConstants {
     /**
      * WebSocket default protocol version
      */
-    public final static int WS_VERSION_DEFAULT = 8;
+    public final static int WS_VERSION_DEFAULT = 10;
     /**
      * WebSocket default protocol version
      */

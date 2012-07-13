@@ -29,7 +29,7 @@ public enum WebSocketFrameType {
     /**  */
     BINARY(0x02),
     /**  */
-    CLOSE(0x09),
+    CLOSE(0x08),
     /**  */
     PING(0x09),
     /**  */
