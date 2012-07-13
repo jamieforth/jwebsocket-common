@@ -202,15 +202,19 @@ public final class WebSocketHandshake {
         // hybi-11). Should be tightened up to reflect the requested version.
         lPos = lRequest.indexOf("Origin:");
         if (lPos < 0) {
-            return null;
+            // Origin is not required.
+            lOrigin = "";
+        } else {
+            lPos += 8;
+            lOrigin = lRequest.substring(lPos);
+            lPos = lOrigin.indexOf("\r\n");
+            if (lPos < 0) {
+                lOrigin = "";
+            } else {
+                lOrigin = lOrigin.substring(0, lPos);
+            }
         }
-        lPos += 8;
-        lOrigin = lRequest.substring(lPos);
-        lPos = lOrigin.indexOf("\r\n");
-        if (lPos < 0) {
-            return null;
-        }
-        lOrigin = lOrigin.substring(0, lPos);
+
         // get path....
         lPos = lRequest.indexOf("GET");
         if (lPos < 0) {
