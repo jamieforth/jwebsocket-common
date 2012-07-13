@@ -586,6 +586,7 @@ public final class WebSocketHandshake {
             protocol = "https";
         }
 
+        // FIXME: Does it make any sense to define the origin as the server URI?
         try {
             URL lURL = new URL(protocol, mURI.getHost(), mURI.getPort(), "");
             mOrigin = lURL.toString();
