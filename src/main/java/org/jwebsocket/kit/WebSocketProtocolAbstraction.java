@@ -321,17 +321,17 @@ public class WebSocketProtocolAbstraction {
 
         WebSocketOpcode lOpcode = new WebSocketOpcode(aVersion);
 
-        if (aOpcode == lOpcode.OPCODE_FRAGMENT) {
+        if (aOpcode == lOpcode.getOPCODE_FRAGMENT()) {
             return WebSocketFrameType.FRAGMENT;
-        } else if (aOpcode == lOpcode.OPCODE_TEXT) {
+        } else if (aOpcode == lOpcode.getOPCODE_TEXT()) {
             return WebSocketFrameType.TEXT;
-        } else if (aOpcode == lOpcode.OPCODE_BINARY) {
+        } else if (aOpcode == lOpcode.getOPCODE_BINARY()) {
             return WebSocketFrameType.BINARY;
-        } else if (aOpcode == lOpcode.OPCODE_CLOSE) {
+        } else if (aOpcode == lOpcode.getOPCODE_CLOSE()) {
             return WebSocketFrameType.CLOSE;
-        } else if (aOpcode == lOpcode.OPCODE_PING) {
+        } else if (aOpcode == lOpcode.getOPCODE_PING()) {
             return WebSocketFrameType.PING;
-        } else if (aOpcode == lOpcode.OPCODE_PONG) {
+        } else if (aOpcode == lOpcode.getOPCODE_PONG()) {
             return WebSocketFrameType.PONG;
         } else {
             return WebSocketFrameType.INVALID;
@@ -362,19 +362,19 @@ public class WebSocketProtocolAbstraction {
 
         switch (aFrameType) {
             case FRAGMENT:
-                return lOpcode.OPCODE_FRAGMENT;
+                return lOpcode.getOPCODE_FRAGMENT();
             case TEXT:
-                return lOpcode.OPCODE_TEXT;
+                return lOpcode.getOPCODE_TEXT();
             case BINARY:
-                return lOpcode.OPCODE_BINARY;
+                return lOpcode.getOPCODE_BINARY();
             case CLOSE:
-                return lOpcode.OPCODE_CLOSE;
+                return lOpcode.getOPCODE_CLOSE();
             case PING:
-                return lOpcode.OPCODE_PING;
+                return lOpcode.getOPCODE_PING();
             case PONG:
-                return lOpcode.OPCODE_PONG;
+                return lOpcode.getOPCODE_PONG();
             default:
-                return lOpcode.OPCODE_INVALID;
+                return lOpcode.getOPCODE_INVALID();
         }
     }
 
