@@ -575,14 +575,17 @@ public final class WebSocketHandshake {
      */
     public byte[] generateC2SRequest(List<HttpCookie> aCookies) {
         String lPath = mURI.getPath();
-        String lHost = mURI.getHost();
-                
+        String lHost = mURI.getAuthority(); // In this case host:port. Port
+                                            // is not required when using the
+                                            // default port - not checking for
+                                            // that here though.
+
         String protocol = "http";
-        
+
         if ("wss".equals(mURI.getScheme())) {
             protocol = "https";
         }
-        
+
         try {
             URL lURL = new URL(protocol, mURI.getHost(), mURI.getPort(), "");
             mOrigin = lURL.toString();
@@ -593,48 +596,58 @@ public final class WebSocketHandshake {
         if ("".equals(lPath)) {
             lPath = "/";
         }
-        byte[] lHandshakeBytes;
 
-        String lHandshake =
-                "GET " + lPath + " HTTP/1.1\r\n"
-                + "Host: " + lHost + "\r\n"
-                + "Upgrade: WebSocket\r\n"
-                + "Connection: Upgrade\r\n"
-                + "Sec-WebSocket-Origin: " + mOrigin + "\r\n";
+        String lHandshake;
+        byte[] lHandshakeBytes;
+        StringBuilder lHandshakeSB = new StringBuilder(512);
+        lHandshakeSB.append("GET ").append(lPath).append(" HTTP/1.1\r\n").append("Host: ")
+                .append(lHost).append("\r\n").append("Upgrade: websocket\r\n")
+                .append("Connection: Upgrade\r\n");
+
+        if (mVersion == null)
+            mVersion = JWebSocketCommonConstants.WS_VERSION_DEFAULT;
+
+        lHandshakeSB.append("Sec-WebSocket-Version: ").append(mVersion).append("\r\n");
+
+        // FIXME: This changes to 'Origin:' in hybi-11.
+        if (mOrigin != null)
+            lHandshakeSB.append("Sec-WebSocket-Origin: ").append(mOrigin).append("\r\n");
+
         if (mProtocol != null) {
-            lHandshake += "Sec-WebSocket-Protocol: " + mProtocol + "\r\n";
+            lHandshakeSB.append("Sec-WebSocket-Protocol: ").append(mProtocol).append("\r\n");
         }
 
         // Set client cookies
         if (null != aCookies && !aCookies.isEmpty()) {
-            //Generating Cookie header
+            // Generating Cookie header
             StringBuilder lCookiesSB = new StringBuilder("");
-            for (HttpCookie lCookie : aCookies){
-                if (!lCookiesSB.toString().equals("")){
+            for (HttpCookie lCookie : aCookies) {
+                if (!lCookiesSB.toString().equals("")) {
                     lCookiesSB.append("; ");
                 }
                 lCookiesSB.append(lCookie.getName()).append("=").append(lCookie.getValue());
             }
-            lHandshake += "Cookie: " + lCookiesSB.toString() + "\r\n";
+            lHandshakeSB.append("Cookie: ").append(lCookiesSB.toString()).append("\r\n");
         }
 
         if (WebSocketProtocolAbstraction.isHixieVersion(mVersion)) {
-            lHandshake +=
-                    "Sec-WebSocket-Key1: " + mHixieKey1 + "\r\n"
-                    + "Sec-WebSocket-Key2: " + mHixieKey2 + "\r\n"
-                    + "\r\n";
-            lHandshakeBytes = new byte[lHandshake.getBytes().length + 8];
-            System.arraycopy(lHandshake.getBytes(), 0, lHandshakeBytes, 0, lHandshake.getBytes().length);
+            // FIXME: Is supporting Hixie versions worthwhile now?
+            lHandshakeSB.append("Sec-WebSocket-Key1: ").append(mHixieKey1).append("\r\n")
+                    .append("Sec-WebSocket-Key2: ").append(mHixieKey2).append("\r\n")
+                    .append("\r\n");
+            lHandshake = lHandshakeSB.toString();
+            lHandshakeBytes = new byte[lHandshake.toString().getBytes().length + 8];
+            System.arraycopy(lHandshake.getBytes(), 0, lHandshakeBytes, 0,
+                    lHandshake.getBytes().length);
             System.arraycopy(mHixieKey3, 0, lHandshakeBytes, lHandshake.getBytes().length, 8);
         } else {
-            lHandshake +=
-                    "Sec-WebSocket-Key: " + mHybiKey + "\r\n";
-            // TODO: This needs to be fixed! mVersion never may be null!
-            if (mVersion != null) {
-                lHandshake += "Sec-WebSocket-Version: " + mVersion + "\r\n";
-            }
-            // don't forget this as to ensure end-of-header detection!
-            lHandshake += "\r\n";
+            lHandshakeSB.append("Sec-WebSocket-Key: ").append(mHybiKey).append("\r\n");
+
+            // End-of-header detection.
+            lHandshakeSB.append("\r\n");
+
+            lHandshake = lHandshakeSB.toString();
+
             try {
                 lHandshakeBytes = lHandshake.getBytes("UTF-8");
             } catch (UnsupportedEncodingException lEx) {
