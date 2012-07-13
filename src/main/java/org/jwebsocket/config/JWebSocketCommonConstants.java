@@ -93,11 +93,11 @@ public class JWebSocketCommonConstants {
      */
     public final static String WS_FORMAT_DEFAULT = WS_FORMAT_JSON;
     /**
-     * WebSocket protocol hybi draft 10 (http://tools.ietf.org/html/draft-hixie-thewebsocketprotocol-76)
+     * WebSocket protocol hixie draft 76 (http://tools.ietf.org/html/draft-hixie-thewebsocketprotocol-76)
      */
     public final static String WS_HIXIE_DRAFT_76 = "76";
     /**
-     * WebSocket protocol hybi draft 03 (http://tools.ietf.org/html/draft-ietf-hybi-thewebsocketprotocol-02)
+     * WebSocket protocol hybi draft 02 (http://tools.ietf.org/html/draft-ietf-hybi-thewebsocketprotocol-02)
      */
     public final static String WS_HYBI_DRAFT_02 = "2";
     /**
@@ -125,10 +125,6 @@ public class JWebSocketCommonConstants {
      */
     public final static int WS_LATEST_SUPPORTED_HIXIE_VERSION = 76;
     /**
-     * WebSocket latest supported hybi version
-     */
-    public final static int WS_LATEST_SUPPORTED_HYBI_VERSION = 8;
-    /**
      * WebSocket earliest supported hixie draft
      */
     public final static String WS_EARLIEST_SUPPORTED_HIXIE_DRAFT = "75";
@@ -136,6 +132,10 @@ public class JWebSocketCommonConstants {
      * WebSocket latest supported hixie draft
      */
     public final static String WS_LATEST_SUPPORTED_HIXIE_DRAFT = "76";
+    /**
+     * WebSocket latest supported hybi version
+     */
+    public final static int WS_LATEST_SUPPORTED_HYBI_VERSION = 8;
     /**
      * WebSocket latest supported hybi draft
      */
@@ -161,7 +161,7 @@ public class JWebSocketCommonConstants {
      */
     public final static int WS_VERSION_DEFAULT = 8;
     /**
-     * WebSocket default protocol version
+     * WebSocket default protocol draft
      */
     public final static int WS_DRAFT_DEFAULT = 10;
     /**
