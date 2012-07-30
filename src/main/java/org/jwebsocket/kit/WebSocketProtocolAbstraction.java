@@ -166,14 +166,14 @@ public class WebSocketProtocolAbstraction {
         // (Integer.MAX_VALUE).
         if (lPayloadLen < 126) {
             lBuff[1] = (byte) (lPayloadLen); // just write the payload length
-        } else if (lPayloadLen >= 126 && lPayloadLen < 0xFFFF) {
+        } else if (lPayloadLen >= 126 && lPayloadLen <= 0xFFFF) {
             // first write 126 (meaning, there will follow two bytes for actual length)
             lBuff[1] = (byte) 126;
             int lSize = lBuff.length;
             lBuff = copyOf(lBuff, lSize + 2);
             lBuff[lSize] = (byte) ((lPayloadLen >>> 8) & 0xFF);
             lBuff[lSize + 1] = (byte) (lPayloadLen & 0xFF);
-        } else if (lPayloadLen >= 0xFFFF) {
+        } else if (lPayloadLen > 0xFFFF) {
             // first write 127 (meaning, there will follow eight bytes for actual length)
             lBuff[1] = (byte) 127;
             long lLen = (long) lPayloadLen;
