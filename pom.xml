@@ -57,7 +57,6 @@
       <groupId>org.netbeans.external</groupId>
       <artifactId>json-2</artifactId>
       <version>RELEASE65</version>
-      <type>jar</type>
     </dependency>
     <!-- Required for Base64 for binary transfer wrapped in text packets -->
     <dependency>
